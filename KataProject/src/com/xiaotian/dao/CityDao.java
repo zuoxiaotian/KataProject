@@ -55,7 +55,6 @@ public class CityDao {
             }
             preparedStatement.setInt(2, city.getCityId());
             
-            System.out.println(preparedStatement.toString());
             preparedStatement.executeUpdate();
             
         } catch (SQLException e) {
