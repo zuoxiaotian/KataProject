@@ -18,21 +18,10 @@
 <link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/theme/default.css" rel="stylesheet">
 </head>
 <body>
-	
 	<div id="content" class="content">
-			
-			
-			
-			
-			
-			<!-- end page-header -->
-			
-			<!-- begin row -->
 			<div class="row">
-                <!-- begin col-6 -->
 			    <div class="col-md-6 ui-sortable">
-			        <!-- begin panel -->
-                    <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+			        <div class="panel panel-inverse" >
                         <div class="panel-heading">
                             <h4 class="panel-title">Add city</h4>
                         </div>
@@ -65,17 +54,8 @@
                             </form>
                         </div>
                     </div>
-                    <!-- end panel -->
                 </div>
-                <!-- end col-6 -->
-                <!-- begin col-6 -->
-                
-                <!-- end col-6 -->
-            </div>
-            
-            <!-- begin row -->
-            
-            <!-- end row -->
-		</div>
+			</div>
+	</div>
 </body>
 </html>

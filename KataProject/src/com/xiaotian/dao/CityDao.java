@@ -62,11 +62,25 @@ public class CityDao {
         }
     }
 
-    public List<City> getAllCities() {
+    public List<City> getCities(String filter) {
         List<City> cities = new ArrayList<City>();
+        String clause = "";
+        if(filter.equals("visited")){
+        	clause = " where visited = 1";
+        } else if(filter.equals("unvisited")) {
+        	clause = " where visited = 0";
+        } else if(filter.equals("sort")){
+        	clause = " order by visited desc";
+        }else if(filter.equals("all")){
+        	clause = "";
+        }else{
+        	clause = " where attractions like '%" + filter + "%' or country like '%" + filter + "%'" ;
+            
+        }
+        
         try {
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from cities");
+            ResultSet rs = statement.executeQuery("select * from cities" + clause);
             while (rs.next()) {
                 City city = new City();
                 city.setCityId(rs.getInt("id"));
@@ -82,6 +96,8 @@ public class CityDao {
 
         return cities;
     }
+    
+
 
     public City getCityById(int cityId) {
         City city = new City();

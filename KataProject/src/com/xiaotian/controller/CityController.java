@@ -32,16 +32,28 @@ public class CityController extends HttpServlet {
             int cityId = Integer.parseInt(request.getParameter("cityId"));
             dao.deleteCity(cityId);
             forward = LIST_CITY;
-            request.setAttribute("cities", dao.getAllCities());    
+            request.setAttribute("cities", dao.getCities("all"));    
         } else if (action.equalsIgnoreCase("edit")){
             forward = LIST_CITY;
             int cityId = Integer.parseInt(request.getParameter("cityId"));
             City city = dao.getCityById(cityId);
             dao.update(city);
-            request.setAttribute("cities", dao.getAllCities());    
+            request.setAttribute("cities", dao.getCities("all"));    
         } else if (action.equalsIgnoreCase("listCity")){
             forward = LIST_CITY;
-            request.setAttribute("cities", dao.getAllCities());
+            request.setAttribute("cities", dao.getCities("all"));
+        }else if (action.equalsIgnoreCase("showvisited")){
+            forward = LIST_CITY;
+            request.setAttribute("cities", dao.getCities("visited"));
+        }else if (action.equalsIgnoreCase("showUnvisited")){
+            forward = LIST_CITY;
+            request.setAttribute("cities", dao.getCities("unvisited"));
+        }else if (action.equalsIgnoreCase("sort")){
+            forward = LIST_CITY;
+            request.setAttribute("cities", dao.getCities("sort"));
+        }else if (action.equalsIgnoreCase("search")){
+            forward = LIST_CITY;
+            request.setAttribute("cities", dao.getCities(request.getParameter("data")));
         } else {
             forward = INSERT_OR_EDIT;
         }
@@ -66,7 +78,7 @@ public class CityController extends HttpServlet {
             dao.update(city);
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_CITY);
-        request.setAttribute("cities", dao.getAllCities());
+        request.setAttribute("cities", dao.getCities("all"));
         view.forward(request, response);
     }
 }

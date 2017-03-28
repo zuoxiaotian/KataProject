@@ -15,20 +15,38 @@
 <link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/style.min.css" rel="stylesheet">
 <link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/style-responsive.min.css" rel="stylesheet">
 <link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/theme/default.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+
 </head>
 <body>
 <div id = "content" class="content">
 	<div class="row">
-		<div class="col-md-6 ui-sortable">
+		<div class="col-md-8 ui-sortable">
 			<!-- begin panel -->
 			<div class="panel panel-inverse">
 				<div class="panel-heading">
 					<h4 class="panel-title">List cities</h4>
 				</div>
 				<div class="panel-body">
+					<div id="data-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+						<div class="row">
+							<div class="col-sm-6"></div>
+							<div class="col-sm-6">
+								<div class="dataTables_filter">
+									<label>Search:<input id="data-table_filter"  class="form-control input-sm"></label>
+									<a class="btn btn-sm btn-success"  href="
+									javascript: 
+										var data = document.getElementById('data-table_filter').value; 
+										window.location = 'CityController?action=search&data=' + data"
+									
+									>Go</a>
+								</div>
+							</div>
+						</div>
+					</div>
 					<table class="table">
 						<thead>
-	
 							<tr>
 								<th>City</th>
 								<th>Country</th>
@@ -36,7 +54,6 @@
 								<th>Visited</th>
 								<th>Delete</th>
 							</tr>
-	
 						</thead>
 						<tbody>
 							<c:forEach items="${cities}" var="city">
@@ -48,7 +65,7 @@
 										href="CityController?action=edit&cityId=<c:out value="${city.cityId}"/>">
 											<c:choose>
 												<c:when test="${city.visited=='0'}">
-										        not visited 
+										        unvisited 
 										        <br />
 												</c:when>
 												<c:otherwise>
@@ -64,7 +81,11 @@
 						</tbody>
 					</table>
 					<p>
-						<a class="btn btn-sm btn-success"  href="CityController?action=insert">Add City</a>
+						<a class="btn btn-sm btn-success"  href="CityController?action=insert">Add City</a> |
+						<a class="btn btn-sm btn-success"  href="CityController?action=listCity">Show all cities</a>
+						<a class="btn btn-sm btn-success"  href="CityController?action=showVisited">Show visited cities</a>
+						<a class="btn btn-sm btn-success"  href="CityController?action=showUnvisited">Show unvisited cities</a> |
+						<a class="btn btn-sm btn-success"  href="CityController?action=sort">Sort by visited</a>
 					</p>
 				</div>
 			</div>
