@@ -6,42 +6,76 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link type="text/css"
-	href="css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<title>Add new user</title>
+<title>Add new city</title>
+
+
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/animate.min.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/style.min.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/style-responsive.min.css" rel="stylesheet">
+<link href="http://seantheme.com/color-admin-v2.2/admin/html/assets/css/theme/default.css" rel="stylesheet">
 </head>
 <body>
-	<script>
-		$(function() {
-			$('input[name=dob]').datepicker();
-		});
-	</script>
-
-	<form method="POST" action='CityController' name="frmAddCity">
-		User ID : <input type="text" readonly="readonly" name="cityId"
-			value="<c:out value="${city.cityId}" />" /> 
-		<br /> 
-		
-		City : <input
-			type="text" name="cityName"
-			value="<c:out value="${city.cityName}" />" /> 
-		<br /> 
-		
-		Country : <input
-			type="text" name="country"
-			value="<c:out value="${city.country}" />" /> 
-		<br /> 
+	
+	<div id="content" class="content">
 			
-		Attractions : <input
-			type="text" name="attractions" placeholder="Seperated by ,"
-			value="<c:out value="${city.attractions}" />" />
-		<br />
-		
-		<input
-			type="submit" value="Submit" /> 
-		
-	</form>
+			
+			
+			
+			
+			<!-- end page-header -->
+			
+			<!-- begin row -->
+			<div class="row">
+                <!-- begin col-6 -->
+			    <div class="col-md-6 ui-sortable">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Add city</h4>
+                        </div>
+                        <div class="panel-body">
+                            <form method="POST" class="form-horizontal" action='CityController' name="frmAddCity">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">City :</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="cityName"  class="form-control" value="<c:out value="${city.cityName}" />" /> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Country :</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="country"  class="form-control" value="<c:out value="${city.country}" />" /> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Attractions :</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="attractions" placeholder="Seperated by ," class="form-control" value="<c:out value="${city.attractions}"  />" /> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"></label>
+                                    <div class="col-md-9">
+                                        <input type="submit" class="btn btn-sm btn-success" value="Submit" /> 
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-6 -->
+                <!-- begin col-6 -->
+                
+                <!-- end col-6 -->
+            </div>
+            
+            <!-- begin row -->
+            
+            <!-- end row -->
+		</div>
 </body>
 </html>
